@@ -141,7 +141,7 @@ with st.sidebar:
     # Sélection du modèle
     model_option = st.radio(
         "Choisissez le modèle à utiliser:",
-        ["Les deux modèles", "CNN Personnalisé", "Transfer Learning (MobileNetV2)"],
+        ["Les deux modèles", "CNN Personnalisé", "Transfer Learning (DenseeNet121)"],
         index=0
     )
     
@@ -188,7 +188,7 @@ with st.sidebar:
         st.metric("Précision Transfer", "93.7%", "+1.8%")
     
     st.progress(93)
-    st.caption("Meilleur modèle: MobileNetV2 (Transfer Learning)")
+    st.caption("Meilleur modèle: DenseNet121 (Transfer Learning)")
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Zone principale de l'application
@@ -312,8 +312,8 @@ with tab1:
                         
                         st.plotly_chart(fig1, use_container_width=True)
                     
-                    if model_option == "Les deux modèles" or model_option == "Transfer Learning (MobileNetV2)":
-                        st.markdown(f'<h4 class="sub-header">🚀 Résultats du Transfer Learning (MobileNetV2)</h4>', unsafe_allow_html=True)
+                    if model_option == "Les deux modèles" or model_option == "Transfer Learning (DenseNet121)":
+                        st.markdown(f'<h4 class="sub-header">🚀 Résultats du Transfer Learning (DenseNet121)</h4>', unsafe_allow_html=True)
                         
                         # Métrique de confiance
                         confidence = transfer_pred[transfer_class_idx] * 100
@@ -472,7 +472,7 @@ with tab2:
     # Graphique de comparaison des performances
     st.markdown("### 📈 Performances Comparées")
     
-    models = ['CNN Personnalisé', 'MobileNetV2', 'ResNet50', 'InceptionV3']
+    models = ['CNN Personnalisé', 'DenseNet121', 'ResNet50', 'EfficientNetB0']
     accuracy = [89.2, 93.7, 91.5, 92.1]
     inference_time = [45, 28, 62, 85]
     
@@ -496,7 +496,7 @@ with tab2:
     st.markdown("### 📋 Caractéristiques des Modèles")
     
     comparison_data = {
-        "Modèle": ["CNN Personnalisé", "MobileNetV2", "ResNet50", "InceptionV3"],
+        "Modèle": ["CNN Personnalisé", "DenseNet121", "ResNet50", "EfficientNetB0"],
         "Précision (%)": ["89.2", "93.7", "91.5", "92.1"],
         "Taille (Mo)": ["15.2", "14.0", "98.0", "92.0"],
         "Temps Inférence (ms)": ["45", "28", "62", "85"],
@@ -510,7 +510,7 @@ with tab2:
     st.markdown("""
     <div class="success-box">
         <h5>🏆 Recommandation</h5>
-        <p>Sur la base de nos tests, <strong>MobileNetV2</strong> offre le meilleur équilibre entre précision (93.7%) 
+        <p>Sur la base de nos tests, <strong>DenseNet121</strong> offre le meilleur équilibre entre précision (93.7%) 
         et vitesse d'inférence (28ms). C'est pourquoi nous l'avons sélectionné comme modèle de transfert learning principal.</p>
     </div>
     """, unsafe_allow_html=True)
@@ -601,7 +601,7 @@ with tab4:
             <p>L'application utilise deux approches de deep learning :</p>
             <ul>
                 <li><strong>CNN Personnalisé</strong> : Architecture convolutionnelle spécialement conçue pour ce dataset</li>
-                <li><strong>Transfer Learning</strong> : MobileNetV2 pré-entraîné sur ImageNet et fine-tuné sur notre dataset</li>
+                <li><strong>Transfer Learning</strong> : DenseNet121pré-entraîné sur ImageNet et fine-tuné sur notre dataset</li>
             </ul>
             <p>Les modèles ont été entraînés sur 2,569 images réparties en 5 classes.</p>
         </div>
@@ -647,7 +647,7 @@ with footer_cols[1]:
     st.markdown("""
     <div style="text-align: center; color: #666; font-size: 0.9rem; padding: 1rem;">
         <p>🌿 <strong>Sugarcane Leaf Disease Classifier</strong> v2.0</p>
-        <p>Précision moyenne: 91.5% • Modèle principal: MobileNetV2</p>
+        <p>Précision moyenne: 91.5% • Modèle principal: DenseNet121</p>
         <p>Dernière mise à jour: Octobre 2024</p>
     </div>
     """, unsafe_allow_html=True)
